@@ -1,29 +1,24 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { GoogleStrategy } from './google/google.strategy';
-import { GoogleController } from './google/google.controller';
-import { GoogleService } from './google/google.service';
+import { AuthController } from './auth/auth.controller';
+import { AuthModule } from './auth/auth.module';
+import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      host:
-        process.env.BUILD_ENV === 'dev'
-          ? process.env.DEV_DB_HOST
-          : process.env.PROD_DB_HOST,
-      database:
-        process.env.BUILD_ENV === 'dev'
-          ? process.env.DEV_DB_DATABASE
-          : process.env.PROD_DB_DATABASE,
+      host: process.env.DB_HOST,
+      database: process.env.DB_DATABASE,
       entities: [], // todo: add entities here
       synchronize: true,
       keepConnectionAlive: true,
     }),
+    AuthModule,
   ],
-  controllers: [AppController, GoogleController],
-  providers: [AppService, GoogleService, GoogleStrategy],
+  controllers: [AppController, AuthController],
+  providers: [AppService, AuthService],
 })
 export class AppModule {}

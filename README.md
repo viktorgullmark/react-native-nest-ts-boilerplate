@@ -9,6 +9,7 @@ React Native, NestJS and MongoDB combined into a solid full stack boilerplate to
 
 **Client**
 - React Native
+- MobX
 
 ## Installation
 

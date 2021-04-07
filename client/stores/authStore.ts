@@ -1,25 +1,17 @@
-import { action, makeObservable } from 'mobx';
-import { fromStream } from 'mobx-utils';
-import { authService } from '../services/auth.service';
+import { makeAutoObservable } from 'mobx';
 import { RootStore } from './rootStore';
-import { catchError, map } from 'rxjs/operators';
-import { AxiosError, AxiosResponse } from 'axios';
-import { of } from 'rxjs';
 
 export class AuthStore {
+  jwt?: string = undefined;
   constructor(private _rootStore: RootStore) {
-    makeObservable(this);
+    makeAutoObservable(this);
   }
 
-  @action
-  loginWithGoogle() {
-    fromStream(
-      authService.googleLogin().pipe(
-        map((res: AxiosResponse<any>) => {
-          console.log('google login response', res);
-        }),
-        catchError((e: AxiosError) => of(console.log('google login error', e))),
-      ),
-    );
+  get loggedIn() {
+    return !!this.jwt;
+  }
+
+  setToken(token: string) {
+    this.jwt = token;
   }
 }

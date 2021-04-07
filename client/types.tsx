@@ -1,5 +1,5 @@
 export type RootStackParamList = {
-  Login: undefined;
+  Login: { jwt: string };
   Authorized: undefined;
   NotFound: undefined;
 };
@@ -9,5 +9,5 @@ export type BottomTabParamList = {
 };
 
 export type HomeParamList = {
-  HomeScreen: { jwt: string };
+  HomeScreen: undefined;
 };

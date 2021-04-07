@@ -1,17 +1,12 @@
 import {
-  NavigationContainer,
-  DefaultTheme,
   DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
 } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
-import LoginScreen from '../screens/LoginScreen';
-
-import NotFoundScreen from '../screens/NotFoundScreen';
-import { RootStackParamList } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+import RootNavigator from './RootNavigator';
 
 export default function Navigation({
   colorScheme,
@@ -25,29 +20,5 @@ export default function Navigation({
     >
       <RootNavigator />
     </NavigationContainer>
-  );
-}
-
-const Stack = createStackNavigator<RootStackParamList>();
-
-function RootNavigator() {
-  return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName="Login"
-    >
-      <Stack.Screen
-        name="Login"
-        component={LoginScreen}
-        options={{ title: 'Login' }}
-      />
-      {/* todo: add protection to authorized route */}
-      <Stack.Screen name="Authorized" component={BottomTabNavigator} />
-      <Stack.Screen
-        name="NotFound"
-        component={NotFoundScreen}
-        options={{ title: 'Oops!' }}
-      />
-    </Stack.Navigator>
   );
 }

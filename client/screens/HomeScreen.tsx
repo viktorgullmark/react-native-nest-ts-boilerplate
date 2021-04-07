@@ -1,16 +1,8 @@
-import { RouteProp } from '@react-navigation/native';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
-import { HomeParamList } from '../types';
 
-type HomeScreenRouteProp = RouteProp<HomeParamList, 'HomeScreen'>;
-type Props = {
-  route: HomeScreenRouteProp;
-};
-
-const HomeScreen = ({ route }: Props) => {
-  console.log('jwt', route.params.jwt);
+const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Welcome!</Text>

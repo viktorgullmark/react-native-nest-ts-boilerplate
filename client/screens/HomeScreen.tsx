@@ -1,14 +1,22 @@
+import { RouteProp } from '@react-navigation/native';
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
+import { HomeParamList } from '../types';
 
-export default function HomeScreen() {
+type HomeScreenRouteProp = RouteProp<HomeParamList, 'HomeScreen'>;
+type Props = {
+  route: HomeScreenRouteProp;
+};
+
+const HomeScreen = ({ route }: Props) => {
+  console.log('jwt', route.params.jwt);
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
+      <Text style={styles.title}>Welcome!</Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -28,3 +36,5 @@ const styles = StyleSheet.create({
     width: '80%',
   },
 });
+
+export default HomeScreen;

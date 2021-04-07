@@ -4,16 +4,13 @@ export default {
   prefixes: [Linking.makeUrl('/')],
   config: {
     screens: {
-      Root: {
+      Login: 'login',
+      Authorized: {
+        path: 'authorized',
         screens: {
-          TabOne: {
+          Home: {
             screens: {
-              TabOneScreen: 'one',
-            },
-          },
-          TabTwo: {
-            screens: {
-              TabTwoScreen: 'two',
+              HomeScreen: 'home/:jwt',
             },
           },
         },

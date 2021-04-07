@@ -1,11 +1,15 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { Text, View } from '../components/Themed';
+import { Button, Linking, StyleSheet } from 'react-native';
+import { View } from '../components/Themed';
+import AppConfig from './../config/app.config';
 
 export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Button
+        onPress={() => Linking.openURL(`${AppConfig.baseUrl}/auth/google`)}
+        title="Login with google"
+      />
     </View>
   );
 }

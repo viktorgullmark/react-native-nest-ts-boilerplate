@@ -1,17 +1,13 @@
 export type RootStackParamList = {
-  Root: undefined;
+  Login: undefined;
+  Authorized: undefined;
   NotFound: undefined;
 };
 
 export type BottomTabParamList = {
   Home: undefined;
-  Login: undefined;
 };
 
 export type HomeParamList = {
-  HomeScreen: undefined;
-};
-
-export type LoginParamList = {
-  LoginScreen: undefined;
+  HomeScreen: { jwt: string };
 };

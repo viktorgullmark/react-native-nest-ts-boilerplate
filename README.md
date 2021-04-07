@@ -1,5 +1,5 @@
 # react-native-nest-ts-boilerplate
-React Native, NestJS and MongoDB combined into a solid full stack boilerplate to kickstart your new apps. Everything is built with TypeScript.
+React Native, NestJS and MongoDB combined into a solid full stack boilerplate to kickstart your new apps
 
 ## Core
 
